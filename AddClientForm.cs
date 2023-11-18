@@ -32,6 +32,19 @@ namespace oop8_orders
             }
             else
             {
+                if (!IsPhoneNumberValid(phoneNumber))
+                {
+                    MessageBox.Show("Некоректний номер телефону. Введіть 10 цифр.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // Перевірка номера пошти
+                if (!IsPostalCodeValid(postalCode))
+                {
+                    MessageBox.Show("Некоректний номер пошти. Введіть числове значення.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 // Отримання нового номера замовлення
                 int newOrderNumber = GetNextOrderNumber();
 
@@ -55,6 +68,10 @@ namespace oop8_orders
                 txtPostalCode.Clear();
             }
         }
+        private bool IsPhoneNumberValid(string phoneNumber)
+        {
+            return phoneNumber.All(char.IsDigit) && phoneNumber.Length == 10;
+        }
 
         private int GetNextOrderNumber()
         {
@@ -72,6 +89,12 @@ namespace oop8_orders
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        // Додайте цей метод для перевірки номера пошти
+        private bool IsPostalCodeValid(string postalCode)
+        {
+            return postalCode.All(char.IsDigit);
         }
     }
 }
