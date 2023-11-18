@@ -1,4 +1,4 @@
-﻿namespace oop8_orders
+namespace oop8_orders
 {
     partial class AddClientForm
     {
@@ -38,6 +38,7 @@
             this.labelCity = new System.Windows.Forms.Label();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelAddInfo
@@ -46,9 +47,9 @@
             this.labelAddInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelAddInfo.Location = new System.Drawing.Point(22, 22);
             this.labelAddInfo.Name = "labelAddInfo";
-            this.labelAddInfo.Size = new System.Drawing.Size(328, 20);
+            this.labelAddInfo.Size = new System.Drawing.Size(366, 20);
             this.labelAddInfo.TabIndex = 0;
-            this.labelAddInfo.Text = "Для додавання клієнта введіть дані:";
+            this.labelAddInfo.Text = "Для додавання замовлення введіть дані:";
             // 
             // txtFullName
             // 
@@ -131,11 +132,23 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnHome
+            // 
+            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnHome.Location = new System.Drawing.Point(427, 22);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(160, 49);
+            this.btnHome.TabIndex = 10;
+            this.btnHome.Text = "На головну сторінку";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
             // AddClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 268);
+            this.Controls.Add(this.btnHome);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.labelPostalCode);
             this.Controls.Add(this.txtPostalCode);
@@ -146,6 +159,8 @@
             this.Controls.Add(this.labelFullName);
             this.Controls.Add(this.txtFullName);
             this.Controls.Add(this.labelAddInfo);
+            this.MaximumSize = new System.Drawing.Size(633, 307);
+            this.MinimumSize = new System.Drawing.Size(633, 307);
             this.Name = "AddClientForm";
             this.Text = "Додавання клієнта";
             this.ResumeLayout(false);
@@ -165,5 +180,6 @@
         private System.Windows.Forms.Label labelCity;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button btnHome;
     }
 }
