@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using oop8_orders;
@@ -20,10 +20,15 @@ namespace oop8_orders
             this.Close();
         }
 
-
         private void btnChangeStatus_Click_1(object sender, EventArgs e)
         {
             // Отримуємо номер замовлення і новий статус
+            if (string.IsNullOrWhiteSpace(txtOrderNumber.Text) || string.IsNullOrWhiteSpace(txtNewStatus.Text))
+            {
+                MessageBox.Show("Будь ласка, заповніть всі поля.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (int.TryParse(txtOrderNumber.Text, out int orderNumberToChange))
             {
                 string newStatus = txtNewStatus.Text;
@@ -51,7 +56,6 @@ namespace oop8_orders
             // Очистка полів для вводу номера та нового статусу
             txtOrderNumber.Clear();
             txtNewStatus.Clear();
-
         }
     }
 }
