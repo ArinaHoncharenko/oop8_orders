@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Linq; // Додайте цей рядок
@@ -67,6 +67,11 @@ namespace oop8_orders
             {
                 return 1; // Перший замовлення
             }
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
