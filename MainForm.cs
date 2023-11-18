@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Newtonsoft.Json;
@@ -59,7 +59,7 @@ namespace oop8_orders
             }
         }
 
-        private void SaveOrders()
+        public void SaveOrders()
         {
             try
             {
@@ -97,11 +97,7 @@ namespace oop8_orders
                     order.OrderStatus
                 );
             }
-        }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            // Збереження замовлень у файл при закритті форми
             SaveOrders();
         }
 
@@ -115,18 +111,12 @@ namespace oop8_orders
             PopulateTable();
         }
 
-        private int GetNextOrderNumber()
+        private void btnDeleteClient_Click(object sender, EventArgs e)
         {
-            // Отримання наступного номера замовлення
-            if (orders.Count > 0)
-            {
-                return orders.Max(o => o.OrderNumber) + 1;
-            }
-            else
-            {
-                return 1; // Перший замовлення
-            }
-        }
+            DeleteClientForm deleteClientForm = new DeleteClientForm();
+            deleteClientForm.ShowDialog();
 
+            PopulateTable();
+        }
     }
 }
