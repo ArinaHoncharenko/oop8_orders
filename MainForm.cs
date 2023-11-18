@@ -113,8 +113,16 @@ namespace oop8_orders
 
         private void btnDeleteClient_Click(object sender, EventArgs e)
         {
-            DeleteClientForm deleteClientForm = new DeleteClientForm();
+            DeleteClientForm deleteClientForm = new DeleteClientForm(orders);
             deleteClientForm.ShowDialog();
+
+            PopulateTable();
+        }
+
+        private void btnStatus_Click(object sender, EventArgs e)
+        {
+            StatusForm statusForm = new StatusForm(orders);
+            statusForm.ShowDialog();
 
             PopulateTable();
         }
