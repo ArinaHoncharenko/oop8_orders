@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Linq; // Додайте цей рядок
-using oop8_orders; // Додайте цей рядок, якщо AddClientForm не знаходить простір імен oop8_orders
+using System.Linq;
+using oop8_orders;
 
 namespace oop8_orders
 {
@@ -28,12 +28,14 @@ namespace oop8_orders
             if (string.IsNullOrWhiteSpace(fullName) || string.IsNullOrWhiteSpace(phoneNumber) ||
                 string.IsNullOrWhiteSpace(city) || string.IsNullOrWhiteSpace(postalCode))
             {
+                // Помилка: не всі поля заповнені
                 MessageBox.Show("Будь ласка, заповніть всі поля.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
                 if (!IsPhoneNumberValid(phoneNumber))
                 {
+                    // Помилка: некоректний номер телефону
                     MessageBox.Show("Некоректний номер телефону. Введіть 10 цифр.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -41,6 +43,7 @@ namespace oop8_orders
                 // Перевірка номера пошти
                 if (!IsPostalCodeValid(postalCode))
                 {
+                    // Помилка: некоректний номер пошти
                     MessageBox.Show("Некоректний номер пошти. Введіть числове значення.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -59,6 +62,7 @@ namespace oop8_orders
                     OrderStatus = "В обробці"
                 });
 
+                // Повідомлення: клієнт успішно доданий
                 MessageBox.Show("Клієнта успішно додано.", "Успішно", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Очистка полів після додавання клієнта
@@ -70,6 +74,7 @@ namespace oop8_orders
         }
         private bool IsPhoneNumberValid(string phoneNumber)
         {
+            // Перевірка, чи номер телефону складається лише з цифр та має довжину 10
             return phoneNumber.All(char.IsDigit) && phoneNumber.Length == 10;
         }
 
@@ -88,12 +93,14 @@ namespace oop8_orders
 
         private void btnHome_Click(object sender, EventArgs e)
         {
+            // Закриття форми
             this.Close();
         }
 
-        // Додайте цей метод для перевірки номера пошти
+        // Метод для перевірки коректності номера пошти
         private bool IsPostalCodeValid(string postalCode)
         {
+            // Перевірка, чи номер пошти складається лише з цифр
             return postalCode.All(char.IsDigit);
         }
     }
